@@ -15,7 +15,7 @@ body{
     margin: 10% auto;
     text-align: center;
     padding-top: 3%;
-    border-radius: 30px;
+    border-radius: 20px;
     box-shadow: -10px 10px 60px #4d4d4d;
 }
 
@@ -24,12 +24,12 @@ ul {
     justify-content: center;
     list-style: none;
     display: grid;
-    grid-template-columns: repeat(var(--grid-size), 45px);
+    grid-template-columns: repeat(var(--grid-size), 50px);
 }
 
 .valueField {
-    width: 35px;
-    height: 20px;
+    width: 40px;
+    height: 25px;
     margin: 3px 0px 0px 3px;
     font-size: 19px;
     text-align: center;
@@ -48,11 +48,12 @@ input::-webkit-inner-spin-button {
 }
 
 label {
+    font-size: 20px;
     margin-right: 10px;
 }
 
 select {
-    font-size: 16px;
+    font-size: 18px;
 }
 
 h1 {
@@ -60,5 +61,39 @@ h1 {
 }
 
 #button {
-    font-size: 17px;
+    color: var(--whiteText);
+    background: #acacac;
+
+    font-size: 18px;
+    letter-spacing: 1px;
+    border: none;
+    padding: 16px;
+    border-radius: 7px;
+    margin-top: 0;
+}
+
+#button:hover{
+    background-color: #929292;
+    cursor: pointer;
+}
+
+#button:active{
+    opacity: .9;
+    transform: scale(1.02);
+}
+
+#button:disabled{
+    opacity: .5;
+    background: red;
+    cursor: not-allowed;
+}
+
+.tituloResultado {
+    margin-top: 25px;
+    font-size: 26px;
+}
+
+.resultado{
+    line-height: 15px;
+    font-size: 35px;
 }
