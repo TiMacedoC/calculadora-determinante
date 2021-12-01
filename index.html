@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+    <title>Calculadora de Determinante</title>
+</head>
+
+<body>
+
+    <div class="container">
+        <h1>Calculadora de Determinante</h1>
+        <label for="tamanho">Escolha uma Matriz</label>
+        <select name="tamanho" id="tamanho">
+            <option value="2">2 x 2</option>
+            <option value="3">3 x 3</option>
+            <option value="4">4 x 4</option>
+            <option value="5">5 x 5</option>
+        </select>
+        <form class="matrizField">
+            <ul class="entrada">
+                <li><input type="number" class="valueField"></li>
+                <li><input type="number" class="valueField"></li>
+                <li><input type="number" class="valueField"></li>
+                <li><input type="number" class="valueField"></li>
+            </ul>
+            <input type="button" value="Calcular" id="button">
+        </form>
+    </div>
+
+</body>
+
+
+<script src="script.js"></script>
+
+</html>

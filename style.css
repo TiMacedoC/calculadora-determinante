@@ -1,0 +1,64 @@
+:root {
+    --grid-size: 2;
+}    
+
+body{
+    background: #a5a5a5;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.container {
+    box-sizing: border-box;
+    background: #d8d8d8;
+    width: min(400px, 90%);
+    height: 600px;
+    margin: 10% auto;
+    text-align: center;
+    padding-top: 3%;
+    border-radius: 30px;
+    box-shadow: -10px 10px 60px #4d4d4d;
+}
+
+ul {
+    padding: 0;
+    justify-content: center;
+    list-style: none;
+    display: grid;
+    grid-template-columns: repeat(var(--grid-size), 45px);
+}
+
+.valueField {
+    width: 35px;
+    height: 20px;
+    margin: 3px 0px 0px 3px;
+    font-size: 19px;
+    text-align: center;
+    line-height: 0;
+}
+
+.entrada {
+    margin: 30px 0;
+}
+
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+label {
+    margin-right: 10px;
+}
+
+select {
+    font-size: 16px;
+}
+
+h1 {
+    margin-bottom: 35px;
+}
+
+#button {
+    font-size: 17px;
+}
