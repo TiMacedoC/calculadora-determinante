@@ -16,15 +16,8 @@ input.addEventListener("input", () => {
     const index = Math.pow(input.value, 2)
     for (i = 0; i < index; i++) {
 
-        entrada.innerHTML += `<li><input type="number" class="valueField"></li>`;
+        entrada.innerHTML += `<li><input type="number" class="valueField" ></li>`;
     }
-
-    if (input.value == 3) {
-        document.getElementById("button").disabled = false;
-    } else {
-        document.getElementById("button").disabled = true;
-    }
-
 });
 
 function calcular() {
@@ -32,7 +25,14 @@ function calcular() {
 
     const matriz = criarMatriz(tamanho);
 
-    calcular3x3(matriz);
+    if (tamanho == 3) {
+        mostraResultado(calcular3x3(matriz));
+    } else if (tamanho == 4) {
+        mostraResultado(calcular4x4(matriz));
+    }
+    else {
+        window.alert("Não implementado")
+    }
 };
 
 // Armazena a Matriz
@@ -40,8 +40,7 @@ function criarMatriz(tamanho) {
 
     var matriz = new Array();
 
-    for (var k = 0; k < tamanho; k++) {
-        console.log("entrou");
+    for (k = 0; k < tamanho; k++) {
         matriz[k] = new Array();
     }
 
@@ -78,9 +77,36 @@ function calcular3x3(m) {
             (m[0][1] * m[1][0] * m[2][2]))
     )
 
-    //Chama a função que escreve o determinante na tela
-    mostraResultado(det);
+    return det;
 }
+
+function calcular4x4(m) {
+
+    const matrizes3x3 = criarMatrizMenor(m);
+
+    //Vai percorrer a coluna 0 da matriz maior
+    let cont = 0;
+    let mult = 1;
+
+    let det = 0;
+
+    matrizes3x3.forEach(matriz => {
+
+        det += (mult * m[cont][0]) * calcular3x3(matriz);
+
+        console.log('matriz:', matriz)
+        console.log("det", det);
+
+        mult = mult * -1
+        cont++;
+
+    });
+
+    return det;
+}
+
+
+
 
 //Função que imprime o valor na tela
 function mostraResultado(result) {
@@ -89,4 +115,49 @@ function mostraResultado(result) {
     <h2 class="tituloResultado">Determinante:</h2>
     <p class="resultado">${result}</p>`;
 
+}
+
+
+// Função que cria matriz menor
+function criarMatrizMenor(m) {
+    var vetorDeMatrizes = []
+
+    for (i = 0; i < 4; i++) {
+        //Auxiliar que vai me ajudar a preencher corretamente a matriz menor
+        var aux = 0;
+
+        //Cria a matriz menor que vai receber os valores
+        let matrizMenor = new Array();
+        for (cont = 0; cont < 3; cont++) {
+            matrizMenor[cont] = new Array();
+        }
+
+        //Percorre toda matriz 4x4 e cria as matrizes menores
+
+        for (l = 0; l < 4; l++) {
+            for (c = 0; c < 4; c++) {
+
+                if (c != 0 && l != i) {
+                    matrizMenor[aux].push(m[l][c]);
+
+                    if (matrizMenor[aux].length > 2) {
+                        aux++;
+                    }
+                }
+
+            }
+        }
+
+        vetorDeMatrizes.push(matrizMenor);
+    }
+
+    return vetorDeMatrizes;
+}
+
+//Função auxiliar pra gerar numeros aleatórios (Só para testes)
+// Só colar essa linha lá em cima: value="${getRandomInt(-4, 4)}"
+function getRandomInt(min, max) {
+    min = Math.ceil(min);
+    max = Math.floor(max);
+    return Math.floor(Math.random() * (max - min)) + min;
 }
