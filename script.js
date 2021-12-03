@@ -31,7 +31,7 @@ function calcular() {
         mostraResultado(calcular4x4(matriz));
     }
     else {
-        window.alert("Não implementado")
+        window.alert("Não implementado\nTente com uma matriz 3x3 ou 4x4")
     }
 };
 
@@ -104,9 +104,6 @@ function calcular4x4(m) {
 
     return det;
 }
-
-
-
 
 //Função que imprime o valor na tela
 function mostraResultado(result) {

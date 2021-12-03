@@ -1,3 +1,9 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
 :root {
     --grid-size: 2;
 }    
@@ -14,7 +20,7 @@ body{
     height: 600px;
     margin: 10% auto;
     text-align: center;
-    padding-top: 3%;
+    padding-top: 10%;
     border-radius: 20px;
     box-shadow: -10px 10px 60px #4d4d4d;
 }
@@ -57,7 +63,8 @@ select {
 }
 
 h1 {
-    margin-bottom: 35px;
+    margin: 0 15px 35px 15px;
+    
 }
 
 #button {
@@ -94,6 +101,18 @@ h1 {
 }
 
 .resultado{
-    line-height: 15px;
+    margin-top: 10px;
     font-size: 35px;
+}
+
+@media (max-width: 600px) {
+    
+    .container{
+        width: 100%;
+        margin: 0;
+        padding-top: 25%;
+        height: 100vh;
+        border-radius: 0;
+    }
+
 }
