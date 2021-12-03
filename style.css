@@ -83,7 +83,7 @@ h1 {
 }
 
 #button:disabled{
-    opacity: .5;
+    opacity: .4;
     background: red;
     cursor: not-allowed;
 }
