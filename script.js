@@ -15,16 +15,17 @@ input.addEventListener("input", () => {
     //Desenha a matriz na tela 
     const index = Math.pow(input.value, 2)
     for (i = 0; i < index; i++) {
-
-        entrada.innerHTML += `<li><input type="number" class="valueField" ></li>`;
+        entrada.innerHTML += `<li><input type="number" class="valueField" value="${getRandomInt(-4, 4)}"></li>`;
     }
 });
 
 function calcular() {
     let tamanho = input.value;
 
+    //Chama a função que vair armazena a entrada do usuário em uma matriz
     const matriz = criarMatriz(tamanho);
 
+    //Dependendo da ordem da matriz ele chama a função correta
     if (tamanho == 3) {
         mostraResultado(calcular3x3(matriz));
     } else if (tamanho == 4) {
@@ -50,7 +51,6 @@ function criarMatriz(tamanho) {
     let j = 0;
 
     valores.forEach((valor) => {
-
         if (j < tamanho) {
             matriz[i][j] = valor.value;
             j++;
@@ -68,6 +68,7 @@ function criarMatriz(tamanho) {
 // Funções que calculam o Fatorial para cada tamanho de matriz
 function calcular3x3(m) {
 
+    // Formula de determinante
     const det = (
         ((m[0][0] * m[1][1] * m[2][2]) +
             (m[0][1] * m[1][2] * m[2][0]) +
@@ -82,23 +83,22 @@ function calcular3x3(m) {
 
 function calcular4x4(m) {
 
+    //Vai gerar uma matriz menor
     const matrizes3x3 = criarMatrizMenor(m);
 
-    //Vai percorrer a coluna 0 da matriz maior
-    let cont = 0;
-    let mult = 1;
+    //Vai percorrer a coluna 0 da matriz maior linha por linha
+    let linha = 0;
+    let fator = 1;
 
     let det = 0;
 
+    // vai calcular o determinate de cada matriz menor
     matrizes3x3.forEach(matriz => {
 
-        det += (mult * m[cont][0]) * calcular3x3(matriz);
+        det += (fator * m[linha][0]) * calcular3x3(matriz);
 
-        console.log('matriz:', matriz)
-        console.log("det", det);
-
-        mult = mult * -1
-        cont++;
+        fator = fator * -1
+        linha++;
 
     });
 
@@ -149,12 +149,4 @@ function criarMatrizMenor(m) {
     }
 
     return vetorDeMatrizes;
-}
-
-//Função auxiliar pra gerar numeros aleatórios (Só para testes)
-// Só colar essa linha lá em cima: value="${getRandomInt(-4, 4)}"
-function getRandomInt(min, max) {
-    min = Math.ceil(min);
-    max = Math.floor(max);
-    return Math.floor(Math.random() * (max - min)) + min;
 }
