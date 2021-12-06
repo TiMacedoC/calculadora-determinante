@@ -1,10 +1,14 @@
 const input = document.querySelector("#tamanho");
 
-const matrizField = document.querySelector(".matrizField");
-const entrada = document.querySelector(".entrada");
+//Já desenha a primeira matriz de inputs
+desenhaMatriz();
 
 //desenha a matriz quando o tamanho é selecionado
-input.addEventListener("input", () => {
+input.addEventListener("input", desenhaMatriz);
+
+function desenhaMatriz() {
+    const entrada = document.querySelector(".entrada");
+
     document.querySelector(".resultado").innerHTML = "";
 
     entrada.innerHTML = "";
@@ -17,7 +21,7 @@ input.addEventListener("input", () => {
     for (i = 0; i < index; i++) {
         entrada.innerHTML += `<li><input type="number" class="valueField""></li>`;
     }
-});
+}
 
 function calcular() {
     let tamanho = input.value;

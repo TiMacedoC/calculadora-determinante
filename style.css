@@ -19,9 +19,9 @@ body{
     background: #d8d8d8;
     width: min(400px, 90%);
     height: 700px;
-    margin: 10% auto;
+    margin: 60px auto 0 auto;
     text-align: center;
-    padding-top: 10%;
+    padding-top: 70px;
     border-radius: 20px;
     box-shadow: -10px 10px 60px #4d4d4d;
 }
@@ -114,7 +114,7 @@ h1 {
         padding-top: 25%;
         min-height: 85%;
         border-radius: 0;
-         box-shadow: none;
+        box-shadow: none;
 
     }
 
@@ -127,4 +127,26 @@ h1 {
     html{
         height: 100%;
     }
+}
+
+@media (max-height: 630px) {
+
+    .container{
+        margin: 0 auto;
+        height: 100%;
+        overflow: auto;
+        border-radius: 0;
+
+    }
+
+    body{
+        height: 100%;
+        background: #d8d8d8;
+        
+    }
+    
+    html{
+        height: 100%;
+    }
+
 }
