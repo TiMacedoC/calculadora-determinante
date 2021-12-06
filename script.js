@@ -15,7 +15,7 @@ input.addEventListener("input", () => {
     //Desenha a matriz na tela 
     const index = Math.pow(input.value, 2)
     for (i = 0; i < index; i++) {
-        entrada.innerHTML += `<li><input type="number" class="valueField" value="${getRandomInt(-4, 4)}"></li>`;
+        entrada.innerHTML += `<li><input type="number" class="valueField""></li>`;
     }
 });
 
